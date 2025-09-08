@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme -->
+    <style name="Base.Theme.LAB_WEEK_02_B" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here -->
+    </style>
+
+    <style name="Theme.LAB_WEEK_02_B" parent="Base.Theme.LAB_WEEK_02_B" />
+
+    <!-- Your custom styles -->
+    <style name="Text_Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="Text_Display">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="ScreenMargin">
+        <item name="android:layout_margin">12dp</item>
+    </style>
+
+</resources>
