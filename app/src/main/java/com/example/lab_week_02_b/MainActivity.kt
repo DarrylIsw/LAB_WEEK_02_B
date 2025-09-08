@@ -1,9 +1,12 @@
 package com.example.lab_week_02_b
 
+import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.content.Intent
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.textfield.TextInputEditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +17,25 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val COLOR_KEY = "COLOR_KEY"
+        private const val ERROR_KEY = "ERROR_KEY"
     }
 
     private val submitButton: Button
         get() = findViewById(R.id.submit_button)
+    // Register Activity Result Launcher (above onCreate)
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+            val data = activityResult.data
+            val error = data?.getBooleanExtra(ERROR_KEY, false) ?: false
 
+            if (error) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.color_code_input_invalid),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
